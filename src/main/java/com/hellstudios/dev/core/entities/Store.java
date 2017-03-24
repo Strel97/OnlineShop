@@ -1,5 +1,6 @@
 package com.hellstudios.dev.core.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,11 +18,11 @@ public class Store {
     public Store() {
     }
 
-    public Store(int id, String name, String description, Manufacturer manufacturer) {
-        this.id = id;
+    public Store(String name, String description, Manufacturer manufacturer) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
+        this.products = new ArrayList<Product>();
     }
 
     public int getId() {
@@ -62,5 +63,9 @@ public class Store {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
     }
 }

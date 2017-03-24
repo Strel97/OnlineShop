@@ -1,5 +1,6 @@
 package com.hellstudios.dev.core.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -7,6 +8,7 @@ import java.util.Set;
  */
 public class Manufacturer {
 
+    private int         id;
     private String      name;
     private String      description;
     private String      originCountry;
@@ -20,6 +22,7 @@ public class Manufacturer {
         this.name = name;
         this.description = description;
         this.originCountry = originCountry;
+        stores = new HashSet<Store>();
     }
 
     public Manufacturer(String name, String description, String originCountry, Set<Store> stores) {
@@ -27,6 +30,14 @@ public class Manufacturer {
         this.description = description;
         this.originCountry = originCountry;
         this.stores = stores;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescription() {

@@ -1,7 +1,7 @@
 package com.hellstudios.dev.core.api.store;
 
 import com.hellstudios.dev.core.api.API;
-import com.hellstudios.dev.core.entities.Product;
+import com.hellstudios.dev.core.api.APIException;
 import com.hellstudios.dev.core.entities.Store;
 
 /**
@@ -9,10 +9,9 @@ import com.hellstudios.dev.core.entities.Store;
  */
 public interface StoreAPI extends API {
 
-    int createStore(Store store);
+    int createStore(Store store) throws APIException;
 
-    Store getStore(int id);
+    Store getStore(int id) throws APIException;
 
-    void addProduct(int storeId, Product product);
-
+    void updateOrCreateStore(Store store) throws APIException;
 }

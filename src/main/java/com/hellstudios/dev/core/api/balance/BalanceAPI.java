@@ -1,6 +1,7 @@
 package com.hellstudios.dev.core.api.balance;
 
 import com.hellstudios.dev.core.api.API;
+import com.hellstudios.dev.core.api.APIException;
 import com.hellstudios.dev.core.api.account.AccountBean;
 
 /**
@@ -8,11 +9,13 @@ import com.hellstudios.dev.core.api.account.AccountBean;
  */
 public interface BalanceAPI extends API {
 
-    int createBalanceAccount(BalanceBean bean);
+    void createBalance(AccountBean account) throws APIException;
 
-    boolean checkBalance(AccountBean account);
+    void createBalance(BalanceBean bean) throws APIException;
 
-    void withdraw(AccountBean account, int money);
+    boolean checkBalance(AccountBean account, int money) throws APIException;
 
-    void replenish(AccountBean account, int money);
+    void withdraw(AccountBean account, int money) throws APIException;
+
+    void replenish(AccountBean account, int money) throws APIException;
 }

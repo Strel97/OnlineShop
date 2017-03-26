@@ -10,18 +10,19 @@ import javax.persistence.Entity;
 @Table(name = "balances", schema = "online-store", catalog = "")
 public class BalanceEntity {
 
-    private int id;
+    private String id;
     private int money;
     private boolean blocked;
+    private AccountEntity owner;
+
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,6 +46,18 @@ public class BalanceEntity {
         this.blocked = blocked;
     }
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
+    public AccountEntity getOwner() {
+        return owner;
+    }
+
+    public void setOwner(AccountEntity owner) {
+        this.owner = owner;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,7 +65,7 @@ public class BalanceEntity {
 
         BalanceEntity that = (BalanceEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (money != that.money) return false;
         if (blocked != that.blocked) return false;
 
@@ -61,7 +74,7 @@ public class BalanceEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + money;
         result = 31 * result + (blocked ? 1 : 0);
         return result;

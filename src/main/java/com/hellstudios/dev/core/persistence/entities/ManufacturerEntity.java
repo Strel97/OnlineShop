@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "manufacturers", schema = "online-store", catalog = "")
 public class ManufacturerEntity {
 
-    private int id;
+    private String id;
     private String name;
     private String description;
     private String originCountry;
@@ -24,12 +24,11 @@ public class ManufacturerEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,7 +70,7 @@ public class ManufacturerEntity {
 
         ManufacturerEntity that = (ManufacturerEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (originCountry != null ? !originCountry.equals(that.originCountry) : that.originCountry != null)
@@ -82,7 +81,7 @@ public class ManufacturerEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (originCountry != null ? originCountry.hashCode() : 0);

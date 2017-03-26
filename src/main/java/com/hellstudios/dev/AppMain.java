@@ -1,5 +1,11 @@
 package com.hellstudios.dev;
 
+import com.hellstudios.dev.core.api.account.AccountAPI;
+import com.hellstudios.dev.core.api.account.AccountAPIImpl;
+import com.hellstudios.dev.core.api.account.AccountBean;
+import com.hellstudios.dev.core.api.balance.BalanceAPI;
+import com.hellstudios.dev.core.api.balance.BalanceAPIImpl;
+import com.hellstudios.dev.core.api.balance.BalanceBean;
 import com.hellstudios.dev.core.persistence.entities.AccountEntity;
 import com.hellstudios.dev.core.persistence.entities.BalanceEntity;
 import com.hellstudios.dev.core.persistence.HibernateSessionFactory;
@@ -10,30 +16,29 @@ import org.hibernate.Session;
  */
 public class AppMain {
 
-    public static void main(String[] args) {
-        System.out.println("Hibernate tutorial");
+    public static void main(String[] args) throws Exception {
+        System.out.println("Testing APIs");
 
-        Session session = HibernateSessionFactory.getSession();
-        session.beginTransaction();
+        AccountAPI accountAPI = new AccountAPIImpl();
+        BalanceAPI balanceAPI = new BalanceAPIImpl();
 
-        BalanceEntity balance = new BalanceEntity();
-        balance.setMoney(1000);
-        balance.setBlocked(false);
-        session.save(balance);
-        session.getTransaction().commit();
 
-        session.beginTransaction();
-        AccountEntity account = new AccountEntity();
-        account.setName("strel");
-        account.setPassword("28021997");
-        account.setEmail("strel97@gmail.com");
-        account.setBalance(balance);
-        session.save(account);
+        try {
+            AccountBean account = new AccountBean();
+            account.setName("strel");
+            account.setEmail("strel@gmail.com");
+            account.setPassword("28021997");
 
-        session.getTransaction().commit();
-        session.close();
+            accountAPI.createAccount(account);
 
-        System.out.println("Done");
-        HibernateSessionFactory.shutdown();
+
+            balanceAPI.createBalance(account);
+            balanceAPI.replenish(account, 1000);
+
+            System.out.println(balanceAPI.checkBalance(account, 50));
+        }
+        finally {
+            HibernateSessionFactory.shutdown();
+        }
     }
 }

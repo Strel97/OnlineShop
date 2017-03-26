@@ -1,29 +1,27 @@
 package com.hellstudios.dev.core.api.account;
 
-import com.hellstudios.dev.core.api.balance.BalanceBean;
 import com.hellstudios.dev.core.persistence.entities.AccountEntity;
+
+import java.io.Serializable;
 
 /**
  * @author strel
  */
-public class AccountBean {
+public class AccountBean implements Serializable {
 
-    private int id;
+    private String id;
     private String name;
     private String password;
     private String email;
-    private BalanceBean balance;
 
 
     public AccountBean() {
     }
 
-    public AccountBean(int id, String name, String password, String email, BalanceBean balance) {
-        this.id = id;
+    public AccountBean(String name, String password, String email) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.balance = balance;
     }
 
     public AccountBean(AccountEntity accountEntity) {
@@ -35,14 +33,13 @@ public class AccountBean {
         this.name = accountEntity.getName();
         this.password = accountEntity.getPassword();
         this.email = accountEntity.getEmail();
-        this.balance = new BalanceBean(accountEntity.getBalance());
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -70,11 +67,21 @@ public class AccountBean {
         this.email = email;
     }
 
-    public BalanceBean getBalance() {
-        return balance;
+    public AccountEntity toEntity() {
+        AccountEntity entity = new AccountEntity();
+        entity.setId(id);
+        entity.setName(name);
+        entity.setEmail(email);
+        entity.setPassword(password);
+        return entity;
     }
 
-    public void setBalance(BalanceBean balance) {
-        this.balance = balance;
+    @Override
+    public String toString() {
+        return "[ " +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                " ]";
     }
 }

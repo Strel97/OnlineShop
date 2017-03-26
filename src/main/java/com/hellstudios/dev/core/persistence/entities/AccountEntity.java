@@ -10,21 +10,19 @@ import javax.persistence.Entity;
 @Table(name = "accounts", schema = "online-store", catalog = "")
 public class AccountEntity {
 
-    private int id;
+    private String id;
     private String name;
     private String password;
     private String email;
-    private BalanceEntity balance;
 
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,7 +63,7 @@ public class AccountEntity {
 
         AccountEntity that = (AccountEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
@@ -75,20 +73,10 @@ public class AccountEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "balance_id", referencedColumnName = "id", nullable = false)
-    public BalanceEntity getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BalanceEntity balance) {
-        this.balance = balance;
     }
 }

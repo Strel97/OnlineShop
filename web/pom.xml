@@ -11,6 +11,14 @@
     <artifactId>web</artifactId>
     <packaging>war</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.hellstudios.weedstore</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

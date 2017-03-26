@@ -2,10 +2,9 @@ package com.hellstudios.dev.core.api.balance;
 
 import com.hellstudios.dev.core.api.APIException;
 import com.hellstudios.dev.core.api.account.AccountBean;
-import com.hellstudios.dev.core.persistence.dao.BalanceDAO;
-import com.hellstudios.dev.core.persistence.dao.DAO;
-import com.hellstudios.dev.core.persistence.dao.DAOException;
-import com.hellstudios.dev.core.persistence.entities.BalanceEntity;
+import com.hellstudios.dev.core.persistence.balance.BalanceDAO;
+import com.hellstudios.dev.core.persistence.DAOException;
+import com.hellstudios.dev.core.persistence.balance.BalanceEntity;
 import org.apache.log4j.Logger;
 
 import java.util.UUID;

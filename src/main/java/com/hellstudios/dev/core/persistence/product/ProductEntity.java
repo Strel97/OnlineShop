@@ -1,5 +1,7 @@
-package com.hellstudios.dev.core.persistence.entities;
+package com.hellstudios.dev.core.persistence.product;
 
+import com.hellstudios.dev.core.persistence.store.StoreEntity;
+import com.hellstudios.dev.core.persistence.manufacturer.ManufacturerEntity;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -12,7 +14,7 @@ import javax.persistence.Entity;
 @Table(name = "products", schema = "online-store", catalog = "")
 public class ProductEntity {
 
-    private int id;
+    private String id;
     private String name;
     private String description;
     private int price;
@@ -23,12 +25,11 @@ public class ProductEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -80,7 +81,7 @@ public class ProductEntity {
 
         ProductEntity that = (ProductEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (price != that.price) return false;
         if (quantity != that.quantity) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
@@ -91,7 +92,7 @@ public class ProductEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + price;

@@ -2,7 +2,7 @@ package com.hellstudios.dev.core.api.manufacturer;
 
 import com.hellstudios.dev.core.api.API;
 import com.hellstudios.dev.core.api.APIException;
-import com.hellstudios.dev.core.persistence.entities.ManufacturerEntity;
+import com.hellstudios.dev.core.persistence.manufacturer.ManufacturerEntity;
 
 /**
  * @author strel

@@ -5,11 +5,7 @@ import com.hellstudios.dev.core.api.account.AccountAPIImpl;
 import com.hellstudios.dev.core.api.account.AccountBean;
 import com.hellstudios.dev.core.api.balance.BalanceAPI;
 import com.hellstudios.dev.core.api.balance.BalanceAPIImpl;
-import com.hellstudios.dev.core.api.balance.BalanceBean;
-import com.hellstudios.dev.core.persistence.entities.AccountEntity;
-import com.hellstudios.dev.core.persistence.entities.BalanceEntity;
 import com.hellstudios.dev.core.persistence.HibernateSessionFactory;
-import org.hibernate.Session;
 
 /**
  * @author strel

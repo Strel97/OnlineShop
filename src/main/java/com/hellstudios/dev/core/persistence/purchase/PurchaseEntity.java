@@ -1,4 +1,7 @@
-package com.hellstudios.dev.core.persistence.entities;
+package com.hellstudios.dev.core.persistence.purchase;
+
+import com.hellstudios.dev.core.persistence.account.AccountEntity;
+import com.hellstudios.dev.core.persistence.product.ProductEntity;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -11,7 +14,7 @@ import java.sql.Timestamp;
 @Table(name = "purchases", schema = "online-store", catalog = "")
 public class PurchaseEntity {
 
-    private int id;
+    private String id;
     private Timestamp date;
     private ProductEntity product;
     private AccountEntity customerAccount;
@@ -19,12 +22,11 @@ public class PurchaseEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,7 +47,7 @@ public class PurchaseEntity {
 
         PurchaseEntity that = (PurchaseEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
 
         return true;
@@ -53,7 +55,7 @@ public class PurchaseEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }

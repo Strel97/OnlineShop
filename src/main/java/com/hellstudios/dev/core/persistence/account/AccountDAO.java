@@ -1,6 +1,7 @@
-package com.hellstudios.dev.core.persistence.dao;
+package com.hellstudios.dev.core.persistence.account;
 
-import com.hellstudios.dev.core.persistence.entities.AccountEntity;
+import com.hellstudios.dev.core.persistence.DAOException;
+import com.hellstudios.dev.core.persistence.DAOImpl;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class AccountDAO extends DAOImpl<AccountEntity> {
     @Override
     @SuppressWarnings("unchecked")
     public List<AccountEntity> findAll() {
-        return (List<AccountEntity>) getCurrentSession().createQuery("from Accounts").list();
+        return (List<AccountEntity>) getCurrentSession().createQuery("from AccountEntity").list();
     }
 
     @Override

@@ -1,6 +1,5 @@
-package com.hellstudios.dev.core.persistence.dao;
+package com.hellstudios.dev.core.persistence;
 
-import com.hellstudios.dev.core.persistence.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

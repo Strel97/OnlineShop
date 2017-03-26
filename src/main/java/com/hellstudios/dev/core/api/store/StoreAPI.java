@@ -2,7 +2,7 @@ package com.hellstudios.dev.core.api.store;
 
 import com.hellstudios.dev.core.api.API;
 import com.hellstudios.dev.core.api.APIException;
-import com.hellstudios.dev.core.persistence.entities.StoreEntity;
+import com.hellstudios.dev.core.persistence.store.StoreEntity;
 
 /**
  * @author strel

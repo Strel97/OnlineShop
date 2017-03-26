@@ -1,6 +1,6 @@
 package com.hellstudios.dev.core.api.account;
 
-import com.hellstudios.dev.core.persistence.entities.AccountEntity;
+import com.hellstudios.dev.core.persistence.account.AccountEntity;
 
 import java.io.Serializable;
 

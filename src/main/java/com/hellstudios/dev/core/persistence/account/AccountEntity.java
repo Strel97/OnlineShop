@@ -1,4 +1,4 @@
-package com.hellstudios.dev.core.persistence.entities;
+package com.hellstudios.dev.core.persistence.account;
 
 import javax.persistence.*;
 import javax.persistence.Entity;

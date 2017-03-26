@@ -20,12 +20,12 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mappings -->
-        <mapping class="com.hellstudios.dev.core.persistence.entities.AccountEntity"/>
-        <mapping class="com.hellstudios.dev.core.persistence.entities.BalanceEntity"/>
-        <mapping class="com.hellstudios.dev.core.persistence.entities.ManufacturerEntity"/>
-        <mapping class="com.hellstudios.dev.core.persistence.entities.ProductEntity"/>
-        <mapping class="com.hellstudios.dev.core.persistence.entities.PurchaseEntity"/>
-        <mapping class="com.hellstudios.dev.core.persistence.entities.StoreEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.account.AccountEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.balance.BalanceEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.manufacturer.ManufacturerEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.product.ProductEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.purchase.PurchaseEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.store.StoreEntity"/>
 
     </session-factory>
 </hibernate-configuration>

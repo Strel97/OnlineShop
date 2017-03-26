@@ -1,13 +1,10 @@
-package com.hellstudios.dev.core.persistence.dao;
+package com.hellstudios.dev.core.persistence.balance;
 
-import com.hellstudios.dev.core.persistence.entities.AccountEntity;
-import com.hellstudios.dev.core.persistence.entities.BalanceEntity;
+import com.hellstudios.dev.core.persistence.account.AccountEntity;
+import com.hellstudios.dev.core.persistence.DAOException;
+import com.hellstudios.dev.core.persistence.DAOImpl;
 import org.hibernate.query.Query;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -53,7 +50,7 @@ public class BalanceDAO extends DAOImpl<BalanceEntity> {
     @Override
     @SuppressWarnings("unchecked")
     public List<BalanceEntity> findAll() {
-        return (List<BalanceEntity>) getCurrentSession().createQuery("from Accounts").list();
+        return (List<BalanceEntity>) getCurrentSession().createQuery("from BalanceEntity").list();
     }
 
     @Override

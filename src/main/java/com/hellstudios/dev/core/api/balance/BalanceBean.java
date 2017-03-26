@@ -1,7 +1,7 @@
 package com.hellstudios.dev.core.api.balance;
 
 import com.hellstudios.dev.core.api.account.AccountBean;
-import com.hellstudios.dev.core.persistence.entities.BalanceEntity;
+import com.hellstudios.dev.core.persistence.balance.BalanceEntity;
 
 /**
  * @author strel

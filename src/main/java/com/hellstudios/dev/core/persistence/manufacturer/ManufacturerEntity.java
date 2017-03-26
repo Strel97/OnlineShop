@@ -1,5 +1,7 @@
-package com.hellstudios.dev.core.persistence.entities;
+package com.hellstudios.dev.core.persistence.manufacturer;
 
+import com.hellstudios.dev.core.persistence.account.AccountEntity;
+import com.hellstudios.dev.core.persistence.product.ProductEntity;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -11,24 +13,24 @@ import java.util.Set;
  * @author strel
  */
 @Entity
-@Table(name = "stores", schema = "online-store", catalog = "")
-public class StoreEntity {
+@Table(name = "manufacturers", schema = "online-store", catalog = "")
+public class ManufacturerEntity {
 
-    private int id;
+    private String id;
     private String name;
     private String description;
+    private String originCountry;
     private AccountEntity owner;
     private Set<ProductEntity> products = new HashSet<ProductEntity>();
 
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -53,25 +55,38 @@ public class StoreEntity {
         this.description = description;
     }
 
+    @Basic
+    @Column(name = "origin_country", length = 45)
+    public String getOriginCountry() {
+        return originCountry;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StoreEntity that = (StoreEntity) o;
+        ManufacturerEntity that = (ManufacturerEntity) o;
 
-        if (id != that.id) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (originCountry != null ? !originCountry.equals(that.originCountry) : that.originCountry != null)
+            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (originCountry != null ? originCountry.hashCode() : 0);
         return result;
     }
 
@@ -81,11 +96,11 @@ public class StoreEntity {
         return owner;
     }
 
-    public void setOwner(AccountEntity ownerAccount) {
-        this.owner = ownerAccount;
+    public void setOwner(AccountEntity owner) {
+        this.owner = owner;
     }
 
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "manufacturer", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<ProductEntity> getProducts() {
         return this.products;
     }

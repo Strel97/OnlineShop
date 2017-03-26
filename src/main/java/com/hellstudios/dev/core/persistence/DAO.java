@@ -1,4 +1,4 @@
-package com.hellstudios.dev.core.persistence.dao;
+package com.hellstudios.dev.core.persistence;
 
 import java.util.List;
 

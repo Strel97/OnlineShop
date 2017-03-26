@@ -1,9 +1,9 @@
 package com.hellstudios.dev.core.api.account;
 
 import com.hellstudios.dev.core.api.APIException;
-import com.hellstudios.dev.core.persistence.dao.AccountDAO;
-import com.hellstudios.dev.core.persistence.dao.DAOException;
-import com.hellstudios.dev.core.persistence.entities.AccountEntity;
+import com.hellstudios.dev.core.persistence.account.AccountDAO;
+import com.hellstudios.dev.core.persistence.DAOException;
+import com.hellstudios.dev.core.persistence.account.AccountEntity;
 import org.apache.log4j.Logger;
 
 import java.util.UUID;

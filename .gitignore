@@ -72,3 +72,6 @@ hs_err_pid*
 online-store.iml
 src/test/
 target/
+/core/core.iml
+/web/web.iml
+/api/api.iml

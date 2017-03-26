@@ -1,17 +1,17 @@
 package com.hellstudios.dev.core.api.account;
 
 import com.hellstudios.dev.core.api.API;
-import com.hellstudios.dev.core.entities.Account;
+import com.hellstudios.dev.core.persistence.entities.AccountEntity;
 
 /**
  * @author strel
  */
 public interface AccountAPI extends API {
 
-    void createAccount(Account account);
+    void createAccount(AccountEntity account);
 
-    Account getAccountById( int id );
+    AccountEntity getAccountById( int id );
 
-    Account getAccountByName( String name );
+    AccountEntity getAccountByName( String name );
 
 }

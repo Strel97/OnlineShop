@@ -2,16 +2,16 @@ package com.hellstudios.dev.core.api.store;
 
 import com.hellstudios.dev.core.api.API;
 import com.hellstudios.dev.core.api.APIException;
-import com.hellstudios.dev.core.entities.Store;
+import com.hellstudios.dev.core.persistence.entities.StoreEntity;
 
 /**
  * @author strel
  */
 public interface StoreAPI extends API {
 
-    int createStore(Store store) throws APIException;
+    int createStore(StoreEntity store) throws APIException;
 
-    Store getStore(int id) throws APIException;
+    StoreEntity getStore(int id) throws APIException;
 
-    void updateOrCreateStore(Store store) throws APIException;
+    void updateOrCreateStore(StoreEntity store) throws APIException;
 }

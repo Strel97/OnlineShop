@@ -1,16 +1,18 @@
 package com.hellstudios.dev.core.api.balance;
 
 import com.hellstudios.dev.core.api.API;
-import com.hellstudios.dev.core.entities.Account;
+import com.hellstudios.dev.core.api.account.AccountBean;
 
 /**
  * @author strel
  */
 public interface BalanceAPI extends API {
 
-    boolean checkBalance(Account account);
+    int createBalanceAccount(BalanceBean bean);
 
-    boolean withdraw(Account account, int money);
+    boolean checkBalance(AccountBean account);
 
-    void replenish(Account account, int money);
+    void withdraw(AccountBean account, int money);
+
+    void replenish(AccountBean account, int money);
 }

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQL5Dialect
+        </property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/online-store</property>
+
+        <property name="connection.username">strel</property>
+        <property name="connection.password">28021997</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- DB schema will be updated if needed -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mappings -->
+        <mapping class="com.hellstudios.dev.core.persistence.entities.AccountEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.entities.BalanceEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.entities.ManufacturerEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.entities.ProductEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.entities.PurchaseEntity"/>
+        <mapping class="com.hellstudios.dev.core.persistence.entities.StoreEntity"/>
+
+    </session-factory>
+</hibernate-configuration>

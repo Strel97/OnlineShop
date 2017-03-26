@@ -72,7 +72,7 @@ public class AccountAPIImpl implements AccountAPI {
     public AccountBean getAccountByEmail(String email) throws APIException {
         try {
             accountDAO.openCurrentSessionWithTransaction();
-            AccountEntity entity = accountDAO.findByProperty( "owner_id", email );
+            AccountEntity entity = accountDAO.findByEmail( email );
             accountDAO.closeCurrentSessionWithTransaction();
 
             return new AccountBean(entity);

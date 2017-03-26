@@ -2,6 +2,7 @@ package com.hellstudios.dev.core.persistence.account;
 
 import com.hellstudios.dev.core.persistence.DAOException;
 import com.hellstudios.dev.core.persistence.DAOImpl;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -31,6 +32,13 @@ public class AccountDAO extends DAOImpl<AccountEntity> {
     @Override
     public AccountEntity findById(String id) throws DAOException {
         return getCurrentSession().get(AccountEntity.class, id);
+    }
+
+    public AccountEntity findByEmail(String email) throws DAOException {
+        Query query = getCurrentSession().createQuery("FROM AccountEntity WHERE email = :email");
+        query.setParameter("email", email);
+
+        return (AccountEntity) query.uniqueResult();
     }
 
     @Override

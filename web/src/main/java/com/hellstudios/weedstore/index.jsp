@@ -1,21 +1,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<c:set var="req" value="${pageContext.request}" />
+<c:set var="uri" value="${req.requestURI}" />
+<c:set var="url">${req.requestURL}</c:set>
+
 <html lang="en">
 <head>
+    <base href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/int/css/font-face.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/int/css/styles.main.css">
+    <link rel="stylesheet" href="./int/css/font-face.css">
+    <link rel="stylesheet" href="./int/css/styles.main.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="<%=request.getContextPath()%>/ext/jsjquery.jcarousel.min.js"></script>
-    <script src="<%=request.getContextPath()%>/int/js/script.main.js"></script>
+    <script src="./ext/js/jquery.jcarousel.min.js"></script>
+    <script src="./int/js/script.main.js"></script>
 </head>
 <body>
-<h1><%=request.getMethod()%></h1>
 <div class="jimmyPage">
 
     <div class="wrapper-top">
@@ -27,7 +34,7 @@
                         <p class="account__price"> 0.00 </p>
 
                         <figure>
-                            <img class="account__img" src="<%=request.getContextPath()%>/int/img/basket.png" alt="BASKET" title="basket">
+                            <img class="account__img" src="./int/img/basket.png" alt="BASKET" title="basket">
                         </figure>
                     </div>
 
@@ -56,9 +63,9 @@
             <div class="j-wrapper">
                 <div class="jcarousel">
                     <ul>
-                        <li><img src="<%=request.getContextPath()%>/int/img/slider/img1.jpg"></li>
-                        <li><img src="<%=request.getContextPath()%>/int/img/slider/img2.jpg"></li>
-                        <li><img src="<%=request.getContextPath()%>/int/img/slider/img3.jpg"></li>
+                        <li><img src="./int/img/slider/img1.jpg"></li>
+                        <li><img src="./int/img/slider/img2.jpg"></li>
+                        <li><img src="./int/img/slider/img3.jpg"></li>
                     </ul>
                 </div>
 
@@ -132,7 +139,7 @@
                 <div class="products__content">
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product2.jpg">
+                            <img class="products__img" src="./int/img/products/product2.jpg">
 
                             <figcaption class="products__name"> Product 1 </figcaption>
                         </figure>
@@ -140,7 +147,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product3.jpg">
+                            <img class="products__img" src="./int/img/products/product3.jpg">
 
                             <figcaption class="products__name"> Product 2 </figcaption>
                         </figure>
@@ -148,7 +155,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product4.jpg">
+                            <img class="products__img" src="./int/img/products/product4.jpg">
 
                             <figcaption class="products__name"> Product 3 </figcaption>
                         </figure>
@@ -156,7 +163,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product1.jpg">
+                            <img class="products__img" src="./int/img/products/product1.jpg">
 
                             <figcaption class="products__name"> Product 4 </figcaption>
                         </figure>
@@ -167,7 +174,7 @@
                 <div class="products__content">
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product4.jpg">
+                            <img class="products__img" src="./int/img/products/product4.jpg">
 
                             <figcaption class="products__name"> Product 5 </figcaption>
                         </figure>
@@ -175,7 +182,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product1.jpg">
+                            <img class="products__img" src="./int/img/products/product1.jpg">
 
                             <figcaption class="products__name"> Product 6 </figcaption>
                         </figure>
@@ -183,7 +190,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product3.jpg">
+                            <img class="products__img" src="./int/img/products/product3.jpg">
 
                             <figcaption class="products__name"> Product 7 </figcaption>
                         </figure>
@@ -191,7 +198,7 @@
 
                     <div class="products__item">
                         <figure>
-                            <img class="products__img" src="<%=request.getContextPath()%>/int/img/products/product2.jpg">
+                            <img class="products__img" src="./int/img/products/product2.jpg">
 
                             <figcaption class="products__name"> Product 8 </figcaption>
                         </figure>
@@ -219,7 +226,7 @@
 
                 <ul class="sellers__list">
                     <li class="sellers__item">
-                        <img class="sellers__img" src="<%=request.getContextPath()%>/int/img/sellers/sashan.jpg" alt="">
+                        <img class="sellers__img" src="./int/img/sellers/sashan.jpg" alt="">
 
                         <div class="sellers__personal">
                             <p class="sellers__name"> OleXandr Snizzko </p>
@@ -230,7 +237,7 @@
                     </li>
 
                     <li class="sellers__item">
-                        <img class="sellers__img" src="<%=request.getContextPath()%>/int/img/sellers/katyan.jpg" alt="">
+                        <img class="sellers__img" src="./int/img/sellers/katyan.jpg" alt="">
 
                         <div class="sellers__personal">
                             <p class="sellers__name"> eKATEryn Buггaiчyk </p>
@@ -241,7 +248,7 @@
                     </li>
 
                     <li class="sellers__item">
-                        <img class="sellers__img" src="<%=request.getContextPath()%>/int/img/sellers/serogan.jpg" alt="">
+                        <img class="sellers__img" src="./int/img/sellers/serogan.jpg" alt="">
 
                         <div class="sellers__personal">
                             <p class="sellers__name"> SerёgA Strelя </p>
@@ -252,7 +259,7 @@
                     </li>
 
                     <li class="sellers__item">
-                        <img class="sellers__img" src="<%=request.getContextPath()%>/int/img/sellers/vovan.jpg" alt="">
+                        <img class="sellers__img" src="./int/img/sellers/vovan.jpg" alt="">
 
                         <div class="sellers__personal">
                             <p class="sellers__name"> Eva Vovtukh </p>

@@ -24,10 +24,15 @@ public class AccountAPIImpl implements AccountAPI {
     private AccountDAO accountDAO;
 
 
-    public AccountAPIImpl() {
+    @Override
+    public void init() {
         accountDAO = new AccountDAO();
     }
 
+    @Override
+    public void deInit() {
+
+    }
 
     @Override
     public void createAccount(AccountBean account) throws APIException {

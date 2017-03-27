@@ -2,14 +2,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var="req" value="${pageContext.request}" />
-<c:set var="uri" value="${req.requestURI}" />
-<c:set var="url">${req.requestURL}</c:set>
-
 <html lang="en">
 <head>
-    <base href="${fn:substring(url, 0, fn:length(url) - fn:length(uri))}${req.contextPath}/" />
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -79,136 +73,7 @@
 
         <!-- PRODUCTS PAGE -->
 
-        <main class="main-products clearfix">
-            <div class="filters">
 
-                <div class="filter">
-                    <span class="filter__caption"> Categories filter: </span>
-
-                    <ul class="filter__menu">
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 1 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 2 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 3 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 4 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 5 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Category 6 </label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="filter">
-                    <span class="filter__caption"> Sellers filter: </span>
-
-                    <ul class="filter__menu">
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Seller 1 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Seller 2 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Seller 3 </label>
-                        </li>
-                        <li class="filter__item">
-                            <label><input class="filter__input" type="checkbox"> Seller 4 </label>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="products">
-                <div class="search">
-                    <input class="search__input-text" type="text" placeholder="Search...">
-                    <input class="search__button" type="button">
-                </div>
-
-                <span class="products__caption"> Products: </span>
-
-                <div class="products__content">
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product2.jpg">
-
-                            <figcaption class="products__name"> Product 1 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product3.jpg">
-
-                            <figcaption class="products__name"> Product 2 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product4.jpg">
-
-                            <figcaption class="products__name"> Product 3 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product1.jpg">
-
-                            <figcaption class="products__name"> Product 4 </figcaption>
-                        </figure>
-                    </div>
-
-                </div>
-
-                <div class="products__content">
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product4.jpg">
-
-                            <figcaption class="products__name"> Product 5 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product1.jpg">
-
-                            <figcaption class="products__name"> Product 6 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product3.jpg">
-
-                            <figcaption class="products__name"> Product 7 </figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="products__item">
-                        <figure>
-                            <img class="products__img" src="./int/img/products/product2.jpg">
-
-                            <figcaption class="products__name"> Product 8 </figcaption>
-                        </figure>
-                    </div>
-
-                </div>
-
-                <div class="products__pagination"></div>
-            </div>
-        </main>
 
         <!-- SELLERS PAGE -->
 

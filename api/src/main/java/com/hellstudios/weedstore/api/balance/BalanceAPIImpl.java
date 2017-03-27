@@ -25,10 +25,15 @@ public class BalanceAPIImpl implements BalanceAPI {
     private BalanceDAO balanceDAO;
 
 
-    public BalanceAPIImpl() {
+    @Override
+    public void init() {
         balanceDAO = new BalanceDAO();
     }
 
+    @Override
+    public void deInit() {
+
+    }
 
     @Override
     public void createBalance(AccountBean account) throws APIException {

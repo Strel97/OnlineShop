@@ -24,10 +24,15 @@ public class StoreAPIImpl implements StoreAPI {
     private StoreDAO storeDAO;
 
 
-    public StoreAPIImpl() {
-        this.storeDAO = new StoreDAO();
+    @Override
+    public void init() {
+        storeDAO = new StoreDAO();
     }
 
+    @Override
+    public void deInit() {
+
+    }
 
     @Override
     public void createStore(StoreBean store) throws APIException {

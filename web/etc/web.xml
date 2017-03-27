@@ -8,9 +8,17 @@
         <servlet-name>WeedServlet</servlet-name>
         <servlet-class>com.hellstudios.weedstore.WeedServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductsHandler</servlet-name>
+        <servlet-class>com.hellstudios.weedstore.products.ProductsHandler</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>WeedServlet</servlet-name>
         <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsHandler</servlet-name>
+        <url-pattern>/Products.html</url-pattern>
     </servlet-mapping>
 </web-app>

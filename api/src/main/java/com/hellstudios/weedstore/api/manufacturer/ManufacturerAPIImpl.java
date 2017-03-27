@@ -24,10 +24,15 @@ public class ManufacturerAPIImpl implements ManufacturerAPI {
     private ManufacturerDAO manufacturerDAO;
 
 
-    public ManufacturerAPIImpl() {
+
+    @Override
+    public void init() {
         this.manufacturerDAO = new ManufacturerDAO();
     }
 
+    @Override
+    public void deInit() {
+    }
 
     @Override
     public void createManufacturer(ManufacturerBean manufacturer) throws APIException {

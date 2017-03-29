@@ -3,9 +3,15 @@ package com.hellstudios.weedstore.api.balance;
 import com.hellstudios.weedstore.api.account.AccountBean;
 import com.hellstudios.weedstore.core.persistence.balance.BalanceEntity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author strel
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BalanceBean {
 
     private String id;

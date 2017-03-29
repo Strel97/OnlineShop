@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="logIn">
-                        <a class="logIn__signIn" href="#"> Sign In </a>
+                        <a id="signInBtn" class="logIn__signIn" href="/Login.html"> Sign In </a>
                         <a class="logIn__register" href="#"> Register </a>
                     </div>
                 </div>

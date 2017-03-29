@@ -6,6 +6,8 @@ import com.hellstudios.weedstore.core.persistence.manufacturer.ManufacturerDAO;
 import com.hellstudios.weedstore.core.persistence.manufacturer.ManufacturerEntity;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -61,7 +63,7 @@ public class ManufacturerAPIImpl implements ManufacturerAPI {
     }
 
     @Override
-    public ManufacturerBean getManufacturer(String id) throws APIException {
+    public ManufacturerBean getManufacturerById(String id) throws APIException {
         try {
             manufacturerDAO.openCurrentSessionWithTransaction();
             ManufacturerEntity entity = manufacturerDAO.findById( id );
@@ -74,6 +76,20 @@ public class ManufacturerAPIImpl implements ManufacturerAPI {
             log.error(msg, ex);
             throw new APIException(msg, ex);
         }
+    }
+
+    public List<ManufacturerBean> getAllManufacturers() throws APIException {
+        List<ManufacturerBean> beans = new ArrayList<ManufacturerBean>();
+
+        manufacturerDAO.openCurrentSessionWithTransaction();
+        List<ManufacturerEntity> entities = manufacturerDAO.findAll();
+        manufacturerDAO.closeCurrentSessionWithTransaction();
+
+        for (ManufacturerEntity entity : entities) {
+            beans.add( new ManufacturerBean(entity) );
+        }
+
+        return beans;
     }
 
     @Override

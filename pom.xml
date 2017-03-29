@@ -20,6 +20,10 @@
         <javaee-api.version>5</javaee-api.version>
         <javaee-web-api.version>7.0</javaee-web-api.version>
         <jstl.version>1.2</jstl.version>
+
+        <json.version>20160810</json.version>
+
+        <jersey-server.version>1.8</jersey-server.version>
     </properties>
 
     <dependencies>
@@ -58,6 +62,23 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey-server.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>${jersey-server.version}</version>
         </dependency>
     </dependencies>
 

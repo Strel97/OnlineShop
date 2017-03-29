@@ -3,9 +3,15 @@ package com.hellstudios.weedstore.api.manufacturer;
 import com.hellstudios.weedstore.api.account.AccountBean;
 import com.hellstudios.weedstore.core.persistence.manufacturer.ManufacturerEntity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author strel
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ManufacturerBean {
 
     private String id;
@@ -32,7 +38,7 @@ public class ManufacturerBean {
 
     public ManufacturerBean(String name, String description, String originCountry, AccountBean owner) {
         if (owner == null) {
-            throw new IllegalArgumentException("Balance owner can't be null!");
+            throw new IllegalArgumentException("Manufacturer account can't be null!");
         }
 
         this.name = name;
@@ -85,7 +91,7 @@ public class ManufacturerBean {
 
     public ManufacturerEntity toEntity() {
         if (owner == null) {
-            throw new IllegalArgumentException("Can't create entity, manufacturer owner is null!");
+            throw new IllegalArgumentException("Can't create entity, manufacturer account is null!");
         }
 
         ManufacturerEntity entity = new ManufacturerEntity();

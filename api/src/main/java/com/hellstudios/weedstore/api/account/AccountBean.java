@@ -2,11 +2,16 @@ package com.hellstudios.weedstore.api.account;
 
 import com.hellstudios.weedstore.core.persistence.account.AccountEntity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * @author strel
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class AccountBean implements Serializable {
 
     private String id;

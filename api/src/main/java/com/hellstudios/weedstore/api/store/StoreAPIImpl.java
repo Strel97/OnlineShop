@@ -6,6 +6,8 @@ import com.hellstudios.weedstore.core.persistence.store.StoreDAO;
 import com.hellstudios.weedstore.core.persistence.store.StoreEntity;
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -52,8 +54,7 @@ public class StoreAPIImpl implements StoreAPI {
             storeDAO.closeCurrentSessionWithTransaction();
 
             log.debug(String.format("Created new store %s with owner %s.", store, store.getOwner()));
-        }
-        catch (DAOException ex) {
+        } catch (DAOException ex) {
             String msg = "Can't save new store in DB";
             log.error(msg, ex);
             throw new APIException(msg, ex);
@@ -61,19 +62,33 @@ public class StoreAPIImpl implements StoreAPI {
     }
 
     @Override
-    public StoreBean getStore(String id) throws APIException {
+    public StoreBean getStoreById(String id) throws APIException {
         try {
             storeDAO.openCurrentSessionWithTransaction();
-            StoreEntity entity = storeDAO.findById( id );
+            StoreEntity entity = storeDAO.findById(id);
             storeDAO.closeCurrentSessionWithTransaction();
 
             return new StoreBean(entity);
-        }
-        catch (DAOException ex) {
+        } catch (DAOException ex) {
             String msg = String.format("Can't get store with id [%s]", id);
             log.error(msg, ex);
             throw new APIException(msg, ex);
         }
+    }
+
+    @Override
+    public List<StoreBean> getAllStores() throws APIException {
+        List<StoreBean> storeBeans = new ArrayList<StoreBean>();
+
+        storeDAO.openCurrentSessionWithTransaction();
+        List<StoreEntity> entities = storeDAO.findAll();
+        storeDAO.closeCurrentSessionWithTransaction();
+
+        for (StoreEntity entity : entities) {
+            storeBeans.add(new StoreBean(entity));
+        }
+
+        return storeBeans;
     }
 
     @Override
@@ -91,8 +106,7 @@ public class StoreAPIImpl implements StoreAPI {
             storeDAO.closeCurrentSessionWithTransaction();
 
             log.debug(String.format("Updated store %s for user %s.", store, store.getOwner()));
-        }
-        catch (DAOException ex) {
+        } catch (DAOException ex) {
             String msg = "Can't update store in DB";
             log.error(msg, ex);
             throw new APIException(msg, ex);

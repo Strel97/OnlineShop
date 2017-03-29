@@ -38,7 +38,7 @@ public class AccountDAO extends DAOImpl<AccountEntity> {
         Query query = getCurrentSession().createQuery("FROM AccountEntity WHERE email = :email");
         query.setParameter("email", email);
 
-        return (AccountEntity) query.uniqueResult();
+        return (AccountEntity) query.getSingleResult();
     }
 
     @Override

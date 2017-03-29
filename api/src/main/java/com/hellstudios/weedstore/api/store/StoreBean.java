@@ -3,9 +3,15 @@ package com.hellstudios.weedstore.api.store;
 import com.hellstudios.weedstore.api.account.AccountBean;
 import com.hellstudios.weedstore.core.persistence.store.StoreEntity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author strel
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class StoreBean {
 
     private String id;
@@ -28,7 +34,7 @@ public class StoreBean {
         this.owner = new AccountBean(storeEntity.getOwner());
     }
 
-    public StoreBean(String name, String description, String originCountry, AccountBean owner) {
+    public StoreBean(String name, String description, AccountBean owner) {
         if (owner == null) {
             throw new IllegalArgumentException("Store owner can't be null!");
         }

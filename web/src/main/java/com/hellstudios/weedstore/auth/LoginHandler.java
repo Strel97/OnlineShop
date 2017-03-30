@@ -21,7 +21,7 @@ public class LoginHandler extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/com/hellstudios/weedstore/auth/LoginPage.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/com/hellstudios/weedstore/login.jsp");
         dispatcher.forward(request, response);
     }
 }

@@ -4,6 +4,7 @@ import com.hellstudios.weedstore.api.APIException;
 import com.hellstudios.weedstore.core.persistence.DAOException;
 import com.hellstudios.weedstore.core.persistence.account.AccountDAO;
 import com.hellstudios.weedstore.core.persistence.account.AccountEntity;
+import com.hellstudios.weedstore.core.util.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class AccountAPIImpl implements AccountAPI {
 
     @Override
     public boolean login(String email, String password) throws APIException {
-        if ("".equals(email) || "".equals(password)) {
+        if (StringUtils.isEmpty(email) || StringUtils.isEmpty(password)) {
             throw new APIException("Parameters are empty.");
         }
 
@@ -91,7 +92,7 @@ public class AccountAPIImpl implements AccountAPI {
             AccountEntity entity = accountDAO.findByEmail(email);
             accountDAO.closeCurrentSessionWithTransaction();
 
-            return entity != null ? new AccountBean(entity) : null;
+            return new AccountBean(entity);
         } catch (DAOException ex) {
             String msg = "Can't get account by email from DB";
             log.error(msg, ex);

@@ -46,7 +46,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "email", nullable = false, length = 45)
+    @Column(name = "email", nullable = false, length = 45, unique = true)
     public String getEmail() {
         return email;
     }

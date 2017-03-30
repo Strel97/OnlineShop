@@ -26,6 +26,7 @@
         <mapping class="com.hellstudios.weedstore.core.persistence.product.ProductEntity"/>
         <mapping class="com.hellstudios.weedstore.core.persistence.purchase.PurchaseEntity"/>
         <mapping class="com.hellstudios.weedstore.core.persistence.store.StoreEntity"/>
+        <mapping class="com.hellstudios.weedstore.core.persistence.auth.AuthEntity"/>
 
     </session-factory>
 </hibernate-configuration>

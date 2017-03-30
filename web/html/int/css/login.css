@@ -52,7 +52,10 @@
     color: #4CAF50;
     text-decoration: none;
 }
-.form .register-form {
+.form .message.register-success {
+    display: none;
+}
+.form .register {
     display: none;
 }
 .container {

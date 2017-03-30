@@ -2,6 +2,8 @@ package com.hellstudios.weedstore.api;
 
 import com.hellstudios.weedstore.api.account.AccountAPI;
 import com.hellstudios.weedstore.api.account.AccountAPIFactory;
+import com.hellstudios.weedstore.api.auth.AuthAPI;
+import com.hellstudios.weedstore.api.auth.AuthAPIFactory;
 import com.hellstudios.weedstore.api.balance.BalanceAPI;
 import com.hellstudios.weedstore.api.balance.BalanceAPIFactory;
 import com.hellstudios.weedstore.api.manufacturer.ManufacturerAPI;
@@ -26,6 +28,7 @@ public final class APIConfigurator {
      */
     public static void configure() {
         APIManager.addAPIFactory(AccountAPI.class, new AccountAPIFactory());
+        APIManager.addAPIFactory(AuthAPI.class, new AuthAPIFactory());
         APIManager.addAPIFactory(BalanceAPI.class, new BalanceAPIFactory());
         APIManager.addAPIFactory(ManufacturerAPI.class, new ManufacturerAPIFactory());
         APIManager.addAPIFactory(StoreAPI.class, new StoreAPIFactory());

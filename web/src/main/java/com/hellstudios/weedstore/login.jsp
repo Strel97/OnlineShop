@@ -1,0 +1,33 @@
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<html>
+<head>
+    <title>Authentication</title>
+
+    <link rel="stylesheet" href="./int/css/login.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./int/js/common.js"></script>
+    <script src="./int/js/login.js"></script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form class="auth-form">
+                <input id="nickname" class="register toggle" type="text" placeholder="nickname"/>
+                <input id="email" type="text" placeholder="email"/>
+                <input id="password" type="password" placeholder="password"/>
+
+                <button id="login-btn" class="login toggle">login</button>
+                <button id="register-btn" class="register toggle">create</button>
+
+                <p class="message register toggle">Already registered? <a href="#">Sign In</a></p>
+                <p class="message login toggle">Not registered? <a href="#">Create an account</a></p>
+
+                <p class="message register-success">Successfully registered your account!</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

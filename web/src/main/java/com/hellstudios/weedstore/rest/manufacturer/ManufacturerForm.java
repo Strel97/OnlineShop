@@ -8,6 +8,7 @@ public class ManufacturerForm {
     private String name;
     private String description;
     private String originCountry;
+    private String image;
     private String ownerId;
 
 
@@ -43,12 +44,21 @@ public class ManufacturerForm {
         this.ownerId = ownerId;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "ManufacturerForm{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", originCountry='" + originCountry + '\'' +
+                ", image='" + image + '\'' +
                 ", ownerId='" + ownerId + '\'' +
                 '}';
     }

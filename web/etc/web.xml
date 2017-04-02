@@ -5,23 +5,6 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>WeedServlet</servlet-name>
-        <servlet-class>com.hellstudios.weedstore.WeedServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginHandler</servlet-name>
-        <servlet-class>com.hellstudios.weedstore.auth.LoginHandler</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginAction</servlet-name>
-        <servlet-class>com.hellstudios.weedstore.auth.LoginAction</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ProductsHandler</servlet-name>
-        <servlet-class>com.hellstudios.weedstore.products.ProductsHandler</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>jersey-servlet</servlet-name>
         <servlet-class>
             com.sun.jersey.spi.container.servlet.ServletContainer
@@ -40,23 +23,6 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>WeedServlet</servlet-name>
-        <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginHandler</servlet-name>
-        <url-pattern>/Login.html</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginAction</servlet-name>
-        <url-pattern>/Login.action</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProductsHandler</servlet-name>
-        <url-pattern>/Products.html</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>jersey-servlet</servlet-name>

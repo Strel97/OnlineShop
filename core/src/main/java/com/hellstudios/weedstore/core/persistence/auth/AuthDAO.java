@@ -2,6 +2,7 @@ package com.hellstudios.weedstore.core.persistence.auth;
 
 import com.hellstudios.weedstore.core.persistence.DAOException;
 import com.hellstudios.weedstore.core.persistence.DAOImpl;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -35,6 +36,13 @@ public class AuthDAO extends DAOImpl<AuthEntity> {
 
     public AuthEntity findByEmail(String email) throws DAOException {
         return findById(email);
+    }
+
+    public AuthEntity findByToken(String token) throws DAOException {
+        Query query = getCurrentSession().createQuery("FROM AuthEntity WHERE token = :token");
+        query.setParameter("token", token);
+
+        return (AuthEntity) query.getSingleResult();
     }
 
     public void deleteByEmail(String email) throws DAOException {

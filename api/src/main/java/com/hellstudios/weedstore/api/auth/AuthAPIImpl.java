@@ -5,6 +5,7 @@ import com.hellstudios.weedstore.api.account.AccountBean;
 import com.hellstudios.weedstore.core.persistence.DAOException;
 import com.hellstudios.weedstore.core.persistence.auth.AuthDAO;
 import com.hellstudios.weedstore.core.persistence.auth.AuthEntity;
+import com.hellstudios.weedstore.core.util.StringUtils;
 import com.hellstudios.weedstore.core.util.Token;
 import com.hellstudios.weedstore.core.util.TokenUtil;
 import org.apache.log4j.Logger;
@@ -98,6 +99,26 @@ public class AuthAPIImpl implements AuthAPI {
         try {
             authDAO.openCurrentSessionWithTransaction();
             AuthEntity entity = authDAO.findByEmail(account.getEmail());
+            authDAO.closeCurrentSessionWithTransaction();
+
+            // If token exists and date was not expired then ok
+            return entity.getExpirationDate().after(Calendar.getInstance());
+        } catch (DAOException ex) {
+            String msg = "Can't verify auth token for user";
+            log.error(msg, ex);
+            throw new APIException(msg, ex);
+        }
+    }
+
+    @Override
+    public boolean isAuthenticated(String token) throws APIException {
+        if (StringUtils.isEmpty(token)) {
+            throw new APIException("Given token is null.");
+        }
+
+        try {
+            authDAO.openCurrentSessionWithTransaction();
+            AuthEntity entity = authDAO.findByToken(token);
             authDAO.closeCurrentSessionWithTransaction();
 
             // If token exists and date was not expired then ok

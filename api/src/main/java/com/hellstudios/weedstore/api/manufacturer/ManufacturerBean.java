@@ -18,6 +18,7 @@ public class ManufacturerBean {
     private String name;
     private String description;
     private String originCountry;
+    private String image;
     private AccountBean owner;
 
 
@@ -33,20 +34,9 @@ public class ManufacturerBean {
         this.name = manufacturerEntity.getName();
         this.description = manufacturerEntity.getDescription();
         this.originCountry = manufacturerEntity.getOriginCountry();
+        this.image = manufacturerEntity.getImage();
         this.owner = new AccountBean(manufacturerEntity.getOwner());
     }
-
-    public ManufacturerBean(String name, String description, String originCountry, AccountBean owner) {
-        if (owner == null) {
-            throw new IllegalArgumentException("Manufacturer account can't be null!");
-        }
-
-        this.name = name;
-        this.description = description;
-        this.originCountry = originCountry;
-        this.owner = owner;
-    }
-
 
     public String getId() {
         return id;
@@ -88,6 +78,13 @@ public class ManufacturerBean {
         this.owner = owner;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public ManufacturerEntity toEntity() {
         if (owner == null) {
@@ -99,6 +96,7 @@ public class ManufacturerBean {
         entity.setName(name);
         entity.setDescription(description);
         entity.setOriginCountry(originCountry);
+        entity.setImage(image);
         entity.setOwner(owner.toEntity());
         return entity;
     }
@@ -110,6 +108,7 @@ public class ManufacturerBean {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", originCountry='" + originCountry + '\'' +
+                ", image='" + image + '\'' +
                 ", owner=" + owner.getId() +
                 " ]";
     }

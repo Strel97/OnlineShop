@@ -14,4 +14,6 @@ public interface AuthAPI extends API {
     void logout(AccountBean account) throws APIException;
 
     boolean isAuthenticated(AccountBean account) throws APIException;
+
+    boolean isAuthenticated(String token) throws APIException;
 }

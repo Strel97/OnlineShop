@@ -1,4 +1,14 @@
 $(function() {
+    
+    var app  = Application;
+    var user = app.getUser();
+    var productAPI = app.getProductAPI();
+    var sellerAPI = app.getSellerAPI();
+
+    // Prevent unauthorized access to site
+    user.isLoggedIn(function( loggedIn ) {
+        !loggedIn && app.goToLoginPage();
+    });
 
    $('#sellers').on('click', function() {
       $('.wrapper-main').children().css('display', 'none');
@@ -78,4 +88,26 @@ $(function() {
       return false;
    });
 
+   // PRODUCT TEMPLATE loading and rendering
+   function renderProducts( data ) {
+        $.get('templates/products.mst', function ( template ) {
+            var rendered = Mustache.render(template, data);
+            $('#products-container').html(rendered);
+        });
+   }
+
+   // Loading data for product template
+   productAPI.getAllProducts( renderProducts );
+
+
+   // SELLER TEMPLATE loading and rendering
+   function renderSellers( data ) {
+        $.get('templates/manufacturers.mst', function ( template ) {
+            var rendered = Mustache.render(template, data);
+            $('#sellers-container').html(rendered);
+        });
+   }
+
+   // Loading data for seller template
+   sellerAPI.getAllSellers( renderSellers );
 });

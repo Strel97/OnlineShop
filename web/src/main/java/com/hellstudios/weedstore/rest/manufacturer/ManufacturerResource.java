@@ -49,7 +49,7 @@ public class ManufacturerResource {
 
     @GET
     @Path("get/{id}")
-    public ReplyObject getAccount(@PathParam("id") String id) {
+    public ReplyObject getManufacturer(@PathParam("id") String id) {
         try {
             return ReplyObject.success("manufacturer", manufacturerAPI.getManufacturerById(id));
         } catch (APIException ex) {
@@ -60,7 +60,7 @@ public class ManufacturerResource {
 
     @GET
     @Path("get/all")
-    public ReplyObject getAllAccounts() {
+    public ReplyObject getAllManufacturers() {
         try {
             return ReplyObject.success("manufacturers", manufacturerAPI.getAllManufacturers());
         } catch (APIException ex) {
@@ -72,7 +72,7 @@ public class ManufacturerResource {
     @POST
     @Path("update/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public ReplyObject updateProfile(@PathParam("id") String id, final ManufacturerForm manufacturerForm) {
+    public ReplyObject updateManufacturer(@PathParam("id") String id, final ManufacturerForm manufacturerForm) {
         JSONResponse response = validateStoreData(manufacturerForm);
         if (response.hasErrors()) {
             return ReplyObject.error(response.toString());
@@ -84,6 +84,7 @@ public class ManufacturerResource {
             manufacturer.setName(manufacturerForm.getName());
             manufacturer.setDescription(manufacturerForm.getDescription());
             manufacturer.setOriginCountry(manufacturerForm.getOriginCountry());
+            manufacturer.setImage(manufacturerForm.getImage());
             manufacturer.setOwner(accountAPI.getAccountById(manufacturerForm.getOwnerId()));
 
             manufacturerAPI.updateManufacturer(manufacturer);
@@ -98,20 +99,22 @@ public class ManufacturerResource {
     @POST
     @Path("create")
     @Consumes(MediaType.APPLICATION_JSON)
-    public ReplyObject updateProfile(final ManufacturerForm manufacturerForm) {
+    public ReplyObject createManufacturer(final ManufacturerForm manufacturerForm) {
         JSONResponse response = validateStoreData(manufacturerForm);
         if (response.hasErrors()) {
             return ReplyObject.error(response.toString());
         }
 
         try {
-            ManufacturerBean store = new ManufacturerBean();
-            store.setName(manufacturerForm.getName());
-            store.setDescription(manufacturerForm.getDescription());
-            store.setOriginCountry(manufacturerForm.getOriginCountry());
-            store.setOwner(accountAPI.getAccountById(manufacturerForm.getOwnerId()));
+            ManufacturerBean manufacturer = new ManufacturerBean();
 
-            manufacturerAPI.createManufacturer(store);
+            manufacturer.setName(manufacturerForm.getName());
+            manufacturer.setDescription(manufacturerForm.getDescription());
+            manufacturer.setOriginCountry(manufacturerForm.getOriginCountry());
+            manufacturer.setImage(manufacturerForm.getImage());
+            manufacturer.setOwner(accountAPI.getAccountById(manufacturerForm.getOwnerId()));
+
+            manufacturerAPI.createManufacturer(manufacturer);
 
             return ReplyObject.success();
         } catch (Exception ex) {

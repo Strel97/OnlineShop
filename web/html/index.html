@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weed Shop</title>
+
+    <link rel="stylesheet" href="int/css/font-face.css">
+    <link rel="stylesheet" href="int/css/styles.main.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="ext/js/jquery.jcarousel.min.js"></script>
+    <script src="ext/js/mustache.min.js"></script>
+
+    <script src="int/js/rest.js"></script>
+    <script src="int/js/cookie.js"></script>
+
+    <script src="int/js/user.js"></script>
+    <script src="int/js/product.js"></script>
+    <script src="int/js/sellers.js"></script>
+    <script src="int/js/common.js"></script>
+    
+    <script src="int/js/main.js"></script>
+</head>
+<body>
+<div class="jimmyPage">
+
+    <div class="wrapper-top">
+
+        <div class="top">
+            <header class="header">
+                <div class="account">
+                    <div class="account__cart">
+                        <p class="account__price"> 0.00 </p>
+
+                        <figure>
+                            <img class="account__img" src="int/img/basket.png" alt="BASKET" title="basket">
+                        </figure>
+                    </div>
+
+                    <div class="logIn">
+                        <a id="signInBtn" class="logIn__signIn" href="/Login.html"> Sign In </a>
+                        <a class="logIn__register" href="#"> Register </a>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <li class="nav__item">
+                        <a class="nav__link" id="home" href="#"> Home </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" id="products" href="#main"> Products </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" id="sellers" href="#main"> Sellers </a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" id="stores" href="#"> Stores </a>
+                    </li>
+                </nav>
+            </header>
+
+            <div class="j-wrapper">
+                <div class="jcarousel">
+                    <ul>
+                        <li><img src="int/img/slider/img1.jpg"></li>
+                        <li><img src="int/img/slider/img2.jpg"></li>
+                        <li><img src="int/img/slider/img3.jpg"></li>
+                    </ul>
+                </div>
+
+                <p class="jcarousel-pagination"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="wrapper-main" id="main">
+
+        <!-- PRODUCTS PAGE -->
+
+        <main class="main-products clearfix">
+            <div class="filters">
+
+               <div class="filter">
+                  <span class="filter__caption"> Categories filter: </span>
+
+                  <ul class="filter__menu">
+                     <li class="filter__item">
+                        <label><input class="filter__input" type="checkbox"> Psychedelics </label>
+                     </li>
+                     <li class="filter__item">
+                        <label><input class="filter__input" type="checkbox"> Cannabis </label>
+                     </li>
+                     <li class="filter__item">
+                        <label><input class="filter__input" type="checkbox"> Stimulants </label>
+                     </li>
+                     <li class="filter__item">
+                        <label><input class="filter__input" type="checkbox"> Opiate </label>
+                     </li>
+                     <li class="filter__item">
+                        <label><input class="filter__input" type="checkbox"> Tranquilizers </label>
+                     </li>
+                  </ul>
+               </div>
+
+            </div>
+
+            <div class="products">
+               <div class="search">
+                  <input class="search__input-text" type="text" placeholder="Search...">
+                  <input class="search__button" type="button">
+               </div>
+
+               <span class="products__caption"> Products: </span>
+
+               <div id="products-container" class="products__content">
+                   <!-- RENDERED by Mustache template engine -->
+               </div>
+
+               <div class="products__pagination"></div>
+            </div>
+         </main>
+
+
+        <!-- SELLERS PAGE -->
+
+        <main class="main-sellers clearfix">
+            <div class="sellers">
+                <div class="sellers__top">
+
+                    <div class="search">
+                        <input class="search__input-text" type="text" placeholder="Search...">
+                        <input class="search__button" type="button">
+                    </div>
+
+                    <span class="sellers__caption"> Sellers: </span>
+                </div>
+
+                <ul id="sellers-container" class="sellers__list">
+                    <!-- RENDERED by Mustache template engine -->
+                </ul>
+            </div>
+        </main>
+
+        <!-- CART PAGE -->
+
+    </div>
+
+    <div class="wrapper-footer">
+        <footer>
+            <span class="copyright"> © Smoking weed can badly affect your health </span>
+        </footer>
+    </div>
+
+
+</div>
+
+</body>
+</html>

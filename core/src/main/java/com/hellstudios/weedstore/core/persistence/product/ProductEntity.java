@@ -18,6 +18,7 @@ public class ProductEntity {
     private String description;
     private int price;
     private int quantity;
+    private String imgName;
     private ManufacturerEntity manufacturer;
     private StoreEntity store;
 
@@ -64,6 +65,16 @@ public class ProductEntity {
     }
 
     @Basic
+    @Column(name = "image")
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    @Basic
     @Column(name = "quantity", nullable = false)
     public int getQuantity() {
         return quantity;
@@ -83,6 +94,7 @@ public class ProductEntity {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (price != that.price) return false;
         if (quantity != that.quantity) return false;
+        if (imgName != null ? !imgName.equals(that.imgName) : that.imgName != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
 
@@ -94,6 +106,7 @@ public class ProductEntity {
         int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (imgName != null ? imgName.hashCode() : 0);
         result = 31 * result + price;
         result = 31 * result + quantity;
         return result;

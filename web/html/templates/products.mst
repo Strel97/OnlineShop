@@ -1,0 +1,8 @@
+{{#products}}
+    <div class="products__item">
+        <figure>
+            <img class="products__img" src="int/img/products/{{ imgName }}">
+            <figcaption class="products__name">{{ name }}</figcaption>
+        </figure>
+    </div>
+{{/products}}

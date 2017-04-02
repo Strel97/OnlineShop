@@ -1,16 +1,29 @@
 
 $(function() {
 
-    var app = new Application();
+    var app = Application;
+    var user = app.getUser();
+
     var emailInput = $('#email');
     var nameInput = $('#nickname');
     var passInput = $('#password');
 
+    
+    function loginAndRedirect() {
+        // Login user
+        user.login(emailInput.val(), passInput.val(), function( loggedIn ) {        
+            // If logged in go to main page
+            loggedIn && app.goToMainPage();
+        });
+    }
 
+
+    // Click handler for login / registration toogle button
     $('.message a').on('click', function () {
         $('.toggle').animate({height: "toggle", opacity: "toggle"}, "slow");
     });
 
+    // Login button click handler
     $('#login-btn').on('click', function ( event ) {
 
         event.preventDefault();
@@ -18,18 +31,11 @@ $(function() {
         if (!app.validateFields([ emailInput, nameInput ])) {
             return;
         }
-
-        var params = {
-            "email": emailInput.val(),
-            "password": passInput.val()
-        };
-
-        app.submitForm("/rest/auth/login", params, function () {
-            // Refreshing page to get main page for logged in user
-            location.reload();
-        });
+        
+        loginAndRedirect();
     });
 
+    // Registration button click handler
     $('#register-btn').on('click', function () {
 
         event.preventDefault();
@@ -38,18 +44,14 @@ $(function() {
             return;
         }
 
-        var params = {
-            "name": nameInput.val(),
-            "email": emailInput.val(),
-            "password": passInput.val()
-        };
+        var registered = user.register(emailInput.val(), passInput.val(), nameInput.val(), function( registered ) {
+            // If user was successfully registered, show message and login him after few seconds.
+            if (registered) {
+                $('.register-success').show();
 
-        app.submitForm("/rest/registration/register", params, function () {
-            app.onSuccessSendUserForm(params);
-            $('.register-success').show();
-
-            // Refreshing page to login user
-            setTimeout(location.reload, 2000);
-        });
+                // Login and redirect user to main page after 2 seconds
+                setTimeout(loginAndRedirect, 2000);
+            }
+        });        
     });
 });

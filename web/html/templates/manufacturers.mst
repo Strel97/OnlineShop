@@ -1,0 +1,12 @@
+{{#manufacturers}}
+    <li class="sellers__item">
+        <img class="sellers__img" src="int/img/sellers/{{ image }}" alt="" />
+
+        <div class="sellers__personal">
+            <p class="sellers__name">{{ name }}</p>
+            <p class="sellers__description">{{ description }}</p>
+        </div>
+
+        <input class="sellers__btn" type="button" value="Show weed" />
+    </li>
+{{/manufacturers}}

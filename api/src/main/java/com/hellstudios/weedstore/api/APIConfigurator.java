@@ -8,6 +8,8 @@ import com.hellstudios.weedstore.api.balance.BalanceAPI;
 import com.hellstudios.weedstore.api.balance.BalanceAPIFactory;
 import com.hellstudios.weedstore.api.manufacturer.ManufacturerAPI;
 import com.hellstudios.weedstore.api.manufacturer.ManufacturerAPIFactory;
+import com.hellstudios.weedstore.api.product.ProductAPI;
+import com.hellstudios.weedstore.api.product.ProductAPIFactory;
 import com.hellstudios.weedstore.api.store.StoreAPI;
 import com.hellstudios.weedstore.api.store.StoreAPIFactory;
 
@@ -32,5 +34,6 @@ public final class APIConfigurator {
         APIManager.addAPIFactory(BalanceAPI.class, new BalanceAPIFactory());
         APIManager.addAPIFactory(ManufacturerAPI.class, new ManufacturerAPIFactory());
         APIManager.addAPIFactory(StoreAPI.class, new StoreAPIFactory());
+        APIManager.addAPIFactory(ProductAPI.class, new ProductAPIFactory());
     }
 }

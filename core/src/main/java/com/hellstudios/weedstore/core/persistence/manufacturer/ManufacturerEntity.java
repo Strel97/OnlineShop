@@ -19,6 +19,7 @@ public class ManufacturerEntity {
     private String name;
     private String description;
     private String originCountry;
+    private String image;
     private AccountEntity owner;
     private Set<ProductEntity> products = new HashSet<ProductEntity>();
 
@@ -64,6 +65,16 @@ public class ManufacturerEntity {
         this.originCountry = originCountry;
     }
 
+    @Basic
+    @Column(name = "image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +84,7 @@ public class ManufacturerEntity {
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (image != null ? !image.equals(that.image) : that.image != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (originCountry != null ? !originCountry.equals(that.originCountry) : that.originCountry != null)
             return false;
@@ -84,6 +96,7 @@ public class ManufacturerEntity {
     public int hashCode() {
         int result = (id != null) ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (originCountry != null ? originCountry.hashCode() : 0);
         return result;
